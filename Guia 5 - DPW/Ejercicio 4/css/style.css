@@ -1,0 +1,56 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /*Establece la altura minima del viewport*/
+    background-color: #555;
+    margin: 0;
+}
+
+.galeria{
+    display: grid; /*Estilo cuadricula*/
+    /*Repite el patrón, se ajusta con el numero de columnas, cada columna
+    tiene minimo 300px y maximo de 1 fraccion de espacio disponible*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;/*Es el espacio entre los elementos del grid*/
+    width: 90%;
+    max-width: 1000px;
+}
+
+.galeria img{
+    width: 100%;
+    height: auto;
+    transition: 0.3s; /*Una transicion suave de 0.3 segundos para el evento hover*/
+    cursor: pointer;
+}
+
+.galeria img:hover{
+    filter: brightness(0.7) sepia(1) hue-rotate(200deg);
+    /*
+        brightness: reduce el brillo al 70%
+        sepia: aplica efecto sepia completo, de color marron calido, como foto antigua
+        hue-rotate: gira el color en 200 grados
+    */
+}
+
+.modelo{
+    display: none;
+    position: fixed; /*Es una posicion fija en la ventana*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /*Fondo negro transparente*/
+    justify-content: center;
+    align-items: center;
+}
+
+.modelo img{
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/*Este evento es para activar ventanas emergentes */
+.modelo:target{
+    display: flex;
+}

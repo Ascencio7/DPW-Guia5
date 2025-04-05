@@ -1,0 +1,52 @@
+body{
+    display: flex; /* Esto activa la caja flexible*/
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Esto establece la altura minima del viewport, la altura
+    de la pantalla.*/
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.color-transicion{
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column; /* Organiza los elementos debajo de otro*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra exterior*/
+    animation: cambiarColores 5s infinite ease-in-out;
+}
+
+/* Aqui se define la animacion */
+@keyframes cambiarColores{
+    0% { /*Estad inicial*/
+        background-color: red;
+    }
+    50% { /*Estado a la mitad */
+        background-color: violet;
+    }
+    100% { /*Estado final*/
+        background-color: green;
+    }
+}
+
+/* Estilo para los h1 dentro del div */
+.color-transicion h1{
+    animation: cambiarColorTexto 5s infinite;
+}
+
+/* Animacion para el texto */
+@keyframes cambiarColorTexto{
+    0%, 100%{ /*Estado inicial al final*/
+        text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+    50%{ /*Estado a la mitad*/
+        text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    }
+}

@@ -1,0 +1,53 @@
+/* Variables de CSS */
+:root{
+    --color-primario:#3498db;
+    --color-secundario: #2c3e50;
+    --color-texto: #ffffff;
+    --tam-fuente: 17px;
+    --margen: 20px;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header{
+    background-color: var(--color-primario);
+    padding: var(--margen);
+}
+
+main{
+    padding: var(--margen);
+    font-size: 25px;
+    line-height: 1.5;
+    margin-top: 150px;
+}
+
+footer{
+    background-color: var(--color-primario);
+    padding: var(--margen);
+    position: fixed;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+}
+
+/* Medias Queries y las variables css */
+@media (max-width: 768px){
+    :root{
+        --tam-fuente: 14px;
+        --margen: 15px;
+    }
+}
+
+@media (max-width: 480px){
+    :root{
+        --tam-fuente: 12px;
+        --margen: 10px;
+    }
+}

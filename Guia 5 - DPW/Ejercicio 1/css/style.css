@@ -1,0 +1,251 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.5; /*Es el espacio entre las lineas*/
+    width: 100%; 
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.grid-container{
+    display: grid;
+    /*Define las areas para el layout*/
+    grid-template-areas: 
+        "header header header"
+        "nav main sidebar"
+        "features features features"
+        "footer footer footer";
+    /* 3 columnas: 200px | 1 de flexible | 200px */
+    grid-template-columns: 200px 1fr 200px;
+    /* 4 filas: auto | 1 de flexible | auto | auto */
+    grid-template-rows: auto 1fr auto auto;
+    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Header */
+.header{
+    grid-area: header; /*Asignacion del area en el grid*/
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    font-size: 30px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Navegacion */
+.nav{
+    grid-area: nav; /*Asignacion del area en el grid*/
+    background-color: #f1f1f1;
+    padding: 15px;
+}
+
+.nav ul{
+    list-style: none;
+    padding: 0;
+}
+
+.nav ul a{
+    text-decoration: none;
+    display: block;
+    margin: 8px 0;
+    padding: 8px 0;
+    color: #555;
+    text-align: center;
+    font-size: 18px;
+    transition: color 0.3s ease; /*Transicion suave para el evento hover*/
+}
+
+.nav ul a:hover{
+    background-color: #333;
+    color: white;
+}
+
+/* Iconos de Boxicons */
+i{
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: 30px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #4caf50;
+    cursor: pointer;
+    transition: color 0.4s ease; /*Transicion suave para el evento hover*/
+}
+
+i:hover{
+    background-color: #e6e6e6;
+    color: #4caf50;
+}
+
+/* El contenido principal */
+.main{
+    grid-area: main; /*Asignacion del area en el grid*/
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    position: relative;
+    font-size: 24px;
+}
+
+.articulo, .productos{
+    margin: 0;
+    color: #555;
+    line-height: 1.5; /*Es el espacio entre las lineas*/
+    padding: 20px 0;
+}
+
+/* El logo de la pagina*/
+.logo {
+    width: 150px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #555;
+}
+
+/* La barra lateral */
+.sidebar{
+    grid-area: sidebar; /*Asignacion del area en el grid*/
+    padding: 15px;
+    background-color: #f1f1f1;
+    font-size: 20px;
+}
+
+/* Secciones de Features */
+.features{
+    grid-area: features; /*Asignacion del area en el grid*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.feature{
+    background-color: #e9e9e9;
+    padding: 15px;
+    text-align: center;
+    margin: 0 20px;
+}
+
+/* Footer */
+.footer{
+    grid-area: footer; /*Asignacion del area en el grid*/
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 19px;
+}
+
+/* Imagenes en general */
+img{
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+/* Sección de los productos */
+.mandos, .games, .computadoras{
+    display: flex;
+    align-items: center;
+    text-align:left;
+    font-size: 19px;
+}
+
+.mandos img, .games img, .computadoras img{
+    margin-right: 20px;
+    max-width: 150px;
+}
+
+
+/* Medias queries para la responsividad */
+
+/* Para tablet */
+@media (min-width: 769px) and (max-width:1024px){
+    .grid-container{
+        grid-template-columns: 150px 1fr 150px;
+    }
+
+    .features{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .feature:last-child{
+        grid-column: span 2;
+    }
+
+    .logo{
+        width: 120px;
+    }
+}
+
+
+/* Para celulares */
+@media (max-width: 768px){
+    .grid-container {
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "features"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .logo{
+        width: 100px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .features{
+        grid-template-columns: 1fr;
+    }
+
+    .feature{
+        margin: 10px 0;
+    }
+
+    .header, .nav, .main, .sidebar, .footer{
+        padding: 10px;
+    }
+
+    i{
+        font-size: 24px;
+        margin-right: 10px;
+    }
+}
+
+
+/* Para pantallas pequeñas */
+@media (max-width: 480px){
+    .mandos, .games, .computadoras{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mandos img, .games img, .computadoras img{
+        margin-right: 0;
+        margin-bottom: 15px;
+        max-width: 100%;
+    }
+
+    .logo{
+        width: 80px;
+    }
+}
